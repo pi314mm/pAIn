@@ -47,6 +47,11 @@ public class Pixel {
 				helpfulness++;
 				helpfulness = Integer.min(helpfulness, 100);
 			}
+		} else {
+			if (rand.nextBoolean()) {
+				helpfulness--;
+				helpfulness = Integer.max(helpfulness, 0);
+			}
 		}
 	}
 
@@ -69,17 +74,10 @@ public class Pixel {
 	public void help() {
 		if (rand.nextInt(100) < helpfulness) {
 			increment(true);
-			if (rand.nextBoolean()) {
-				helpfulness--;
-				helpfulness = Integer.max(helpfulness, 0);
-			}
 		} else {
 			decriment(true);
-			if (rand.nextBoolean()) {
-				helpfulness++;
-				helpfulness = Integer.min(helpfulness, 100);
-			}
 		}
+
 	}
 
 }
